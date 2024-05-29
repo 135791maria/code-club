@@ -1,7 +1,7 @@
 const express = require("express");
 const { v4: uuid } = require("uuid"); 
 const cors = require("cors"); 
-const port = 3001;
+const port = 3001
 
 const app = express();
 app.use(express.json());
@@ -19,9 +19,9 @@ const checkUserId = (request, response, next) => {
     request.userIndex = index;
     request.userId = id;
     next();
-};
+}
 
-app.get("/users", (request, response) => {
+app.get("/users", (request, response) => {     
     return response.json(users);
 });
 
@@ -45,7 +45,8 @@ app.put("/users/:id", checkUserId, (request, response) => {
     users[index] = updateUser;
 
     return response.json(updateUser);
-});
+})
+
 
 app.delete("/users/:id", checkUserId, (request, response) => {
     const index = request.userIndex;
